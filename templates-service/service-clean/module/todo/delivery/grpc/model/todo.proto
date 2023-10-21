@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package todo.todo;
+
+option go_package = "grpc/protocol_buffer";
+
+service TodoService {
+  rpc CreateTodoHandler (TodoCreateRequestModel) returns (TodoCreateResponseModel);
+}
+
+message TodoCreateRequestModel {
+}
+
+message TodoCreateResponseModel {
+}
