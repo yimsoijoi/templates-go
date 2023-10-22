@@ -7,8 +7,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (self adapterImpl) CreateTodo(ctx context.Context, entity domain.Todo) error {
-	createModel := &model.Todo{
+func (self adapterImpl) UpdateTodo(ctx context.Context, entity domain.Todo) error {
+	query := &model.Todo{ID: entity.ID}
+	updateModel := &model.Todo{
 		ID:          entity.ID,
 		Title:       entity.Title,
 		Description: entity.Description,
@@ -17,5 +18,5 @@ func (self adapterImpl) CreateTodo(ctx context.Context, entity domain.Todo) erro
 		CreatedAt:   entity.CreatedAt,
 	}
 
-	return errors.WithStack(self.db.Create(ctx, createModel))
+	return errors.WithStack(self.db.Update(ctx, query, updateModel))
 }

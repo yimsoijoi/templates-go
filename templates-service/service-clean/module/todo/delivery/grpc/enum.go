@@ -1,7 +1,6 @@
 package grpc
 
 import (
-	"example.com/service-clean/module/todo/common"
 	protobuf "example.com/service-clean/module/todo/delivery/grpc/model/gen/grpc/protocol_buffer"
 	"example.com/service-clean/module/todo/domain"
 )
@@ -15,6 +14,6 @@ func toAppStatus(status protobuf.Status) domain.Status {
 	case protobuf.Status_InProgress:
 		return domain.StatusInProgress
 	default:
-		panic(common.ErrInvalidStatus)
+		return domain.StatusTodo
 	}
 }

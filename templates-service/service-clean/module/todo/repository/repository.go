@@ -11,6 +11,10 @@ import (
 
 type Repository interface {
 	CreateTodo(ctx context.Context, todo domain.Todo) error
+	GetTodo(context.Context, string) (*domain.Todo, error)
+	GetTodos(context.Context) ([]domain.Todo, error)
+	UpdateTodo(context.Context, domain.Todo) error
+	DeleteTodo(context.Context, string) error
 }
 
 func New(repoClient interface{}) Repository {
@@ -20,6 +24,6 @@ func New(repoClient interface{}) Repository {
 	case *gorm.DB:
 		return database.New(repoClient.(*gorm.DB))
 	default:
-		panic("invalid repo client")
+		panic("invalid repository client")
 	}
 }

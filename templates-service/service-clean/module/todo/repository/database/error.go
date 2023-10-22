@@ -1,14 +1,9 @@
 package database
 
 import (
-	"errors"
-	"example.com/service-clean/module/todo/common"
+	"github.com/pkg/errors"
 )
 
 var (
-	errCreateTodoDBRepository = errors.New("failed to create todo db repository")
+	errNotFoundTodo = errors.New("not found todo")
 )
-
-func wrapError(errContext string, err error) error {
-	return common.WrapError(errContext, err)
-}
