@@ -1,5 +1,7 @@
 package domain
 
+import "context"
+
 type Repository interface {
-	CreateTodo(todo Todo) error
+	CreateTodo(context.Context, Todo) error
 }

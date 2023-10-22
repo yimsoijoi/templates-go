@@ -1,5 +1,7 @@
 package domain
 
+import "context"
+
 type UseCase interface {
-	CreateTodo(todo Todo) error
+	CreateTodo(ctx context.Context, todo TodoCreateInput) error
 }
