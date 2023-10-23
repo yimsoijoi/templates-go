@@ -7,7 +7,7 @@ import (
 )
 
 type Todo struct {
-	ID          string    `gorm:"column:id;type:varchar;index:,type:btree;not null" json:"id"`
+	ID          string    `gorm:"column:id;type:varchar;primaryKey;index:,type:btree;not null" json:"id"`
 	Title       string    `gorm:"column:title;type:varchar;index:,type:btree;not null" json:"title"`
 	Description string    `gorm:"column:description;type:varchar;not null" json:"description"`
 	Status      string    `gorm:"column:status;type:varchar;not null" json:"status"`

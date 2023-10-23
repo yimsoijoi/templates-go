@@ -1,9 +1,12 @@
 package common
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 var (
-	ErrInvalidStatus = "invalid status"
+	ErrCreateTodo = errors.New("failed to create todo")
 )
 
 func WrapError(errContext string, err error) error {
